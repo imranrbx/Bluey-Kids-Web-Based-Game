@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bluey Platformer Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="game-info">
+        <h1>Bluey Platformer for IDREES</h1>
+        <p>Controls: Arrow Keys or A/D to move, Space/W to jump</p>
+      </div>
+      <div id="character-select">
+        <h2>Select Your Character</h2>
+        <div id="character-list"></div>
+  
+      </div>
+      <canvas id="gameCanvas" width="1280" height="720"></canvas>
+      <!-- Mobile on-screen controls -->
+      <div class="mobile-controls" aria-hidden="false">
+        <button id="btn-left" class="btn" aria-label="Move Left">◀</button>
+        <button id="btn-jump" class="btn small" aria-label="Jump">▲</button>
+        <button id="btn-right" class="btn" aria-label="Move Right">▶</button>
+      </div>
+    </div>
+    <script src="game.js"></script>
+  </body>
+</html>
