@@ -2,17 +2,17 @@
 // GAME CONSTANTS
 // ============================================
 const GRAVITY = 0.6;
-const JUMP_POWER = 12;
-const MOVE_SPEED = 5;
-const GROUND_Y = 500;
-const PLAYER_WIDTH = 90;
-const PLAYER_HEIGHT = 110;
+const JUMP_POWER = 15;
+const MOVE_SPEED = 8;
+const GROUND_Y = 600;
+const PLAYER_WIDTH = 180;
+const PLAYER_HEIGHT = 190;
 const TILE_SIZE = 38;
 const CANVAS_WIDTH = 1280;
 const CANVAS_HEIGHT = 620;
 const WORLD_WIDTH = 1700; // Infinite scrolling world
-const ALPHABET_BLOCK_WIDTH = 80;
-const ALPHABET_BLOCK_HEIGHT = 60;
+const ALPHABET_BLOCK_WIDTH = 100;
+const ALPHABET_BLOCK_HEIGHT = 100;
 const FOOT_MARGIN = 12; // pixels of horizontal leniency when deciding foot overlap
 let CURRENT_CHRACTER = 'sprites/bluey-transparent.png'
 const CHARACTERS = [
@@ -164,7 +164,7 @@ class SpriteAnimator {
       -PLAYER_WIDTH / 2,
       -PLAYER_HEIGHT / 2,
       PLAYER_WIDTH,
-      PLAYER_HEIGHT
+      PLAYER_HEIGHT + 60
     );
 
     ctx.restore();
@@ -189,7 +189,7 @@ class Player {
     this.animator = new SpriteAnimator();
     this.startX = x;
     this.startY = y;
-    this.footOffset = 0;
+    this.footOffset = 100;
   }
   setCharacter(character) {
     this.spriteSheet = character.image;
@@ -371,12 +371,12 @@ class Platform {
     gradient.addColorStop(0, "#34b233");
     gradient.addColorStop(1, "#2a9129");
     ctx.fillStyle = gradient;
-    ctx.fillRect(this.x, this.y, this.width, this.height);
+    ctx.fillRect(this.x, this.y+50, this.width, this.height);
 
     // Border
     ctx.strokeStyle = "#1a6b1b";
     ctx.lineWidth = 2;
-    ctx.strokeRect(this.x, this.y, this.width, this.height);
+    ctx.strokeRect(this.x, this.y+50, this.width, this.height);
 
     // Add some visual detail (tiles)
     ctx.strokeStyle = "#1a6b1b";
@@ -384,7 +384,7 @@ class Platform {
     for (let i = this.x; i < this.x + this.width; i += TILE_SIZE) {
       ctx.beginPath();
       ctx.moveTo(i, this.y);
-      ctx.lineTo(i, this.y + this.height);
+      ctx.lineTo(i, this.y + this.height );
       ctx.stroke();
     }
   }
